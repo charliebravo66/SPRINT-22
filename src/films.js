@@ -20,6 +20,7 @@ function orderAlphabetically(array) {
   
 }
 
+
 // Exercise 5: Order by year, ascending
 function orderByYear() {
 
