@@ -1,19 +1,20 @@
 const movies = require("./data");
 
 // Exercise 1: Get the array of all directors.
-function getAllDirectors(array) {
+function getAllDirectors(movies) {
   
 //mapear el array con una función arrow que busque por director  
 
-             /* let busquedaDirector = [movies];
+              let busquedaDirector = [movies];
 
-              let nuevoArr = busquedaDirector.map(movies.director);*/
+              let nuevoArr = busquedaDirector.map(movies.director);
 
 //fin
 //version Daniel Guido
-let arrayDirectors = array.map(nombre => nombre.director);
-console.log("EXERCICE 1 ->", arrayDirectors);
-return arrayDirectors;
+//let arrayDirectors = array.map(nombre => nombre.director);
+console.log("hola", nuevoArr);
+//console.log("EXERCICE 1 ->", nuevoArr);
+return nuevoArr;
 
 //
 /*let array1 = movies.length;
