@@ -1,25 +1,84 @@
+const movies = require("./data");
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result =  ???;
-  console.log("EXERCICE 1 ->", result);
-  return result;
-}
+  
+//mapear el array con una función arrow que busque por director  
+
+             /* let busquedaDirector = [movies];
+
+              let nuevoArr = busquedaDirector.map(movies.director);*/
+
+//fin
+//version Daniel Guido
+let arrayDirectors = array.map(nombre => nombre.director);
+console.log("EXERCICE 1 ->", arrayDirectors);
+return arrayDirectors;
+
+//
+/*let array1 = movies.length;
+console.log(array1);
+
+return movies.map(movie=>movie.director);*/
+
+
+//let busquedaDirector =  movies.map(busquedaDirector => busquedaDirector.director);
+
+//const nuevoArray = busquedaDirector(movies.director);
+
+/*  let busquedaDirector = function(dire) {
+            return dire.director;
+          }
+          
+  let result = movies(director).map(busquedaDirector);
+          console.log(result);*/
+
+ 
+
+  
+ 
+
+  //return result;
+  //return busquedaDirector;
+  }
+  
+
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
- 
+
+  /*const items = array.filter(item => {
+    if(item.title === 'Pulp Fiction'){
+      return true;
+    }else{
+      return false;
+    }
+  })*/
+
+
+      let buscaPeli = array.filter(dire => dire.title = "Frank Darabont");  
+//let buscaPeli = array.filter((peli.indice) = indice == 0);
+//let buscaDire = director.filter((peli.indice) = indice == 1);
+      console.log(buscaPeli);
+//return conseguirPeli;
+//let pelisDirector = array.filter(busquedaDirector =>busquedaDirector.director == director); 
+//let peliDire = array.filter(film => film.director);
+//let pDire = array.filter((busqueda) =>busqueda.title);
+//console.log("EXERCICE 2 ->", pDire);
+//return peDire;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
   
+
+
 }
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
   
 }
-
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
@@ -40,6 +99,7 @@ function hoursToMinutes() {
 function bestFilmOfYear() {
   
 }
+
 
 
 // The following is required to make unit tests work.
