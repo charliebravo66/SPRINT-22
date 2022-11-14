@@ -1,90 +1,36 @@
-const movies = require("./data");
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-//Version Sandra
-let result;
-// pass a function to map
-result = array.map(function(array) {
-    return movie.director;
-});
-//console.log("EXERCICE 1 ->", result);
-//return result;
 
+let arrayDirectors = array.map(nombre => nombre.director);
+return arrayDirectors;
 
-
-//mapear el array con una función arrow que busque por director  
-
-              //let busquedaDirector = [movies];
-
-              //let nuevoArr = busquedaDirector.map(movies.director);
-            
-
-//fin
-//version Daniel Guido
-//let arrayDirectors = array.map(nombre => nombre.director);
-
-//console.log("EXERCICE 1 ->", nuevoArr);
-//return extraerDirector;
-
-//
-/*let array1 = movies.length;
-console.log(array1);
-
-return movies.map(movie=>movie.director);*/
-
-
-//let busquedaDirector =  movies.map(busquedaDirector => busquedaDirector.director);
-
-//const nuevoArray = busquedaDirector(movies.director);
-
-/*  let busquedaDirector = function(dire) {
-            return dire.director;
-          }
-          
-  let result = movies(director).map(busquedaDirector);
-          console.log(result);*/
-
- 
-
+}
   
- 
-
-  //return result;
-  //return busquedaDirector;
-  }
-  
-
-
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
 
-  /*const items = array.filter(item => {
-    if(item.title === 'Pulp Fiction'){
-      return true;
-    }else{
-      return false;
-    }
-  })*/
+let pDire = array.filter(busquedaPeli =>busquedaPeli.director == director);
+return pDire; 
 
-
-      let buscaPeli = array.filter(dire => dire.title = "Frank Darabont");  
-//let buscaPeli = array.filter((peli.indice) = indice == 0);
-//let buscaDire = director.filter((peli.indice) = indice == 1);
-      console.log(buscaPeli);
-//return conseguirPeli;
-//let pelisDirector = array.filter(busquedaDirector =>busquedaDirector.director == director); 
-//let peliDire = array.filter(film => film.director);
-//let pDire = array.filter((busqueda) =>busqueda.title);
-//console.log("EXERCICE 2 ->", pDire);
-//return peDire;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
   
-const calculaPuntuacion = array.reduce(puntuaScore => puntuaScore.score);
-let puntuaPeli = newArray.director == calculaPuntuacion;
+let calculaPuntuacion = array.reduce(puntuaScore => puntuaScore.score == director);
+//const calculaPuntuacion = array.reduce(
+//  (previousValue, currentValue) => previousValue + currentValue (score, director)
+//);
+/*let calculaPuntuacion =score.reduce(
+  function (valorAnterior, valorActual) {
+    return Object.assign(valorAnterior, { [valorActual.id]: valorActual });
+  },
+  {} /* el valor inicial es un objeto vacío */
+
+  //return p + e;
+//let puntuaPeli = newArray.director == calculaPuntuacion;
+return calculaPuntuacion;
 
     
 }
