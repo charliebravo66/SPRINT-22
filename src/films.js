@@ -88,8 +88,11 @@ function hoursToMinutes() {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(movies) {
+  //función que acepta el año y devuelva la mejor película de ese año
   
+  return movies.map;
+//return anoPelicula;
 }
 
 
