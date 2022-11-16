@@ -34,21 +34,30 @@ return pDire;
 // 3- De esas puntuaciones dividir el número de elementos del objeto
 // 4- Devolver un array de pelis i devolver la nota media con 2 decimales
 
-
-
 function moviesAverageOfDirector(array, director) {
 
-//let resultado busqueda director película  
-let result = array.filter(busquedaPeli =>busquedaPeli.director == director);
+// let resultado busqueda director película  
+ let result = array.filter(busquedaPeli =>busquedaPeli.director == director);
+// let result = array.map(busquedaPeli =>busquedaPeli.director);
+// llama a la función que nos muestra el array de los directores de pelis
+
+let pDire2 = array.filter(busquedaPeli =>busquedaPeli.director == director);
+let arrayScores = pDire2.map((nombre => nombre.score));
+
+console.log("esto es array puntuaciones -->",arrayScores);
+
+//let arrayDirectors2 = array.filter(nombre => nombre.director);
+
 //let calculaPuntuacion = result.map(puntuaScore => puntuaScore.score);
-const sumaPuntuaciones = array.reduce((contador, item) => contador + item.score, 0);
+let sumaPuntuaciones = arrayScores.reduce((contador, item) => contador + item.score, 0);
+console.log("esto es sumaPuntuaciones -->", sumaPuntuaciones);
 
 //la reducción de elementos se divide por el número de elementos del objeto 
-let promedioPuntuacion = sumaPuntuaciones / array.length;
+let promedioPuntuacion = Number(sumaPuntuaciones / array.length).toFixed(2);
 
-
-//se aplica en el promedio los 2 decimales
-return promedioPuntuacion.toFixed(2);
+//devolver array pelis y se aplica en el promedio los 2 decimales
+//let arrayPeliculas = array.map(pelis =>pelis.title);
+return promedioPuntuacion;
 
     
 }
@@ -99,10 +108,11 @@ function orderByYear(array) {
 // 2- Recibir una categoria de película
 // 3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
 
-function moviesAverageByCategory() {
+function moviesAverageByCategory(array) {
 
-  let puntuaPeliculas = array.filter(scorePeli =>scorePeli.genre = genre);
-  //moviesAverage();
+  let puntuaPeliculas = array.map(scorePeli =>scorePeli.genre);
+  //Llamar a la función moviesAverage
+  //moviesAverage;
 
 }
 
