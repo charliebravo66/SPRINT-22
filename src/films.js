@@ -46,10 +46,9 @@ const sumaPuntuaciones = array.reduce((contador, item) => contador + item.score,
 //la reducción de elementos se divide por el número de elementos del objeto 
 let promedioPuntuacion = sumaPuntuaciones / array.length;
 
-console.log(promedioPuntuacion.toFixed(2));
 
 //se aplica en el promedio los 2 decimales
-return promedioPuntuacion;
+return promedioPuntuacion.toFixed(2);
 
     
 }
@@ -90,8 +89,6 @@ function orderByYear(array) {
   //return filtrajeAlfabetico;
 
 
-
-
 }
 
 // Exercise 6: Calculate the average of the movies in a category
@@ -104,8 +101,8 @@ function orderByYear(array) {
 
 function moviesAverageByCategory() {
 
-  
-  //let puntuaPeliculas = array.filter(scorePeli =>scorePeli.score == score);
+  let puntuaPeliculas = array.filter(scorePeli =>scorePeli.genre = genre);
+  //moviesAverage();
 
 }
 
@@ -125,7 +122,6 @@ function hoursToMinutes(movies) {
    let hora = movies.parseFloat(horasMinutos);
 
    let convertir = hora * 60;
-
 
   return convertir;
 //console.log(convertir);
@@ -149,7 +145,9 @@ function hoursToMinutes(movies) {
 
 function bestFilmOfYear(movies) {
   
-  let anoFilm = year.filter (busquedaAno => busquedaAno.peliOne == peliOne.title);
+  let anoFilm = movies.filter(busquedaAno => busquedaAno.year == year);
+  // Hacer un if score
+
   return anoFilm;
 }
 
