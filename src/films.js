@@ -29,10 +29,10 @@ return pDire;
 // calcular la mitjana de les puntuacions de les seves pel·lícules.
 // rep un array de pel·lícules i retorna la nota mitjana, amb dos decimals.
 // utilizar método reduce
-//1- Crear un filter para buscar por director
-//2- Después utilizar método reduce de las puntuaciones partiendo de índice 0
-//3- De esas puntuaciones dividir el número de elementos del objeto
-//4- Devolver un array de pelis i devolver la nota media con 2 decimales
+// 1- Crear un filter para buscar por director
+// 2- Después utilizar método reduce de las puntuaciones partiendo de índice 0
+// 3- De esas puntuaciones dividir el número de elementos del objeto
+// 4- Devolver un array de pelis i devolver la nota media con 2 decimales
 
 
 
@@ -57,8 +57,8 @@ return promedioPuntuacion;
 // Exercise 4:  Alphabetic order by title 
 // hauràs de crear una funció, que rebent un array de pel·lícules, el retorni ordenat alfabèticament per títol.
 // retornar les 20 primeres pel·lícules ordenades.
-//1- Se utilizar map (para recorrer los títulos de películas y el método sort que ordena)
-//2- Se devuelve con return las primeras 20 con lenght > 20 y con slice extraemos del índice 0 a la 20. 
+// 1- Se utilizar map (para recorrer los títulos de películas y el método sort que ordena)
+// 2- Se devuelve con return las primeras 20 con lenght > 20 y con slice extraemos del índice 0 a la 20. 
 
 function orderAlphabetically(array) {
   let titulosPeliculas = array.map(pelicula => pelicula.title).sort();
@@ -67,9 +67,9 @@ function orderAlphabetically(array) {
 
 // Exercise 5: Order by year, ascending
 // rebent un array de pel·lícules, retorna un array de pel·lícules ordenades per any.
-//Per a ordenar aquestes pel·lícules que tenen el mateix any, s'ha de fer per ordre alfabètic del títol
-//1-Hacer array map de peliculas y que devuelva este array pero ordenadas por año.
-//2-Utilizar sort y comparar título - año y por orden alfabético. Se tiene que hacer por orden alfabético del título de la peli
+// Per a ordenar aquestes pel·lícules que tenen el mateix any, s'ha de fer per ordre alfabètic del títol
+// 1-Hacer array map de peliculas y que devuelva este array pero ordenadas por año.
+// 2-Utilizar sort y comparar título - año y por orden alfabético. Se tiene que hacer por orden alfabético del título de la peli
 
 function orderByYear(array) {
 
@@ -95,12 +95,12 @@ function orderByYear(array) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-//demanar la nota mitjana de les pel·lícules d'un determinat gènere.
-//rebi una categoria de pel·lícula,  i calculi la mitjana de nota d'aquesta categoria (sobre l'array de totes les pel·lícules).
-//Primer has d'obtenir les pel·lícules d'una determinada categoria, i després cridar a moviesAverage(), per a calcular la seva mitjana.
-//1- Llamar a la función moviesAverage
-//2- Recibir una categoria de película
-//3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
+// demanar la nota mitjana de les pel·lícules d'un determinat gènere.
+// rebi una categoria de pel·lícula,  i calculi la mitjana de nota d'aquesta categoria (sobre l'array de totes les pel·lícules).
+// Primer has d'obtenir les pel·lícules d'una determinada categoria, i després cridar a moviesAverage(), per a calcular la seva mitjana.
+// 1- Llamar a la función moviesAverage
+// 2- Recibir una categoria de película
+// 3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
 
 function moviesAverageByCategory() {
 
@@ -141,11 +141,11 @@ function hoursToMinutes(movies) {
 }
 
 // Exercise 8: Get the best film of a year
-//Els usuaris/àries necessiten saber quina pel·lícula és la millor de cada any. 
-//Per dur a terme aquesta funcionalitat, hauràs de crear una funció que accepti l'any, i retorni la millor pel·lícula d'aquest any.
-/*1- Mirar les scores / puntuaciones de las pelis, 
-2- Recorrer todos los años de las peliculas y filtrarlas por año / título
-3- Devolver la mejor película de ese año */
+// Els usuaris/àries necessiten saber quina pel·lícula és la millor de cada any. 
+// Per dur a terme aquesta funcionalitat, hauràs de crear una funció que accepti l'any, i retorni la millor pel·lícula d'aquest any.
+// 1- Mirar les scores / puntuaciones de las pelis, 
+// 2- Recorrer todos los años de las peliculas y filtrarlas por año / título
+// 3- Devolver la mejor película de ese año 
 
 function bestFilmOfYear(movies) {
   
