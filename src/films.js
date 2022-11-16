@@ -73,9 +73,18 @@ function moviesAverageByCategory() {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(movies) {
 
-   let horasMinutos = array.map(duracionPeli =>duracionPeli.duration);
+   //let horasMinutos = array.map(duracionPeli =>duracionPeli.duration);
+   let horasMinutos = movies.map(duracionPeli =>duracionPeli.duration);
+   return t = horasMinutos;  
+   let hora = movies.parseFloat(horasMinutos);
+
+   let convertir = hora * 60;
+
+
+  return convertir;
+//console.log(convertir);
   // hora a convertir
 //return t = horasMinutos;
 
@@ -88,11 +97,8 @@ function hoursToMinutes() {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear(movies) {
-  //función que acepta el año y devuelva la mejor película de ese año
+function bestFilmOfYear() {
   
-  return movies.map;
-//return anoPelicula;
 }
 
 
