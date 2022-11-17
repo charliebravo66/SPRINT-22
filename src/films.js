@@ -1,6 +1,7 @@
 
 // Exercise 1: Get the array of all directors.
 // només els directors de les pel·lícules. 
+
 // 1- Utilizar el método map para extraer datos director únicamente 
 // 2- Devolver el array nuevo creado
 
@@ -15,6 +16,7 @@ return arrayDirectors;
 // mostrar les pel·lícules per a un determinat director/a.
 // rebre com a paràmetre el/la director/a per al qual es volen buscar les seves pel·lícules, i retorna l'array de pel·lícules que ha dirigit.
 // utilizar método filter
+
 // 1- Crear un array con filter de director == director 
 // 2- Devolver ese array.
 
@@ -29,41 +31,43 @@ return pDire;
 // calcular la mitjana de les puntuacions de les seves pel·lícules.
 // rep un array de pel·lícules i retorna la nota mitjana, amb dos decimals.
 // utilizar método reduce
+
 // 1- Crear un filter para buscar por director
 // 2- Después utilizar método reduce de las puntuaciones partiendo de índice 0
 // 3- De esas puntuaciones dividir el número de elementos del objeto
 // 4- Devolver un array de pelis i devolver la nota media con 2 decimales
 
-function moviesAverageOfDirector(array, director) {
+function moviesAverageOfDirector(movies, director) {
 
 // let resultado busqueda director película  
 // let result = array.filter(busquedaPeli =>busquedaPeli.director == director);
 // let result = array.map(busquedaPeli =>busquedaPeli.director);
 // llama a la función que nos muestra el array de los directores de pelis
 
-let pDire2 = array.filter(busquedaPeli =>busquedaPeli.director == director);
-let arrayScores = arrayScores.map((nombre => nombre.score));
+let pDire2 = movies.filter(busquedaPeli_2 =>busquedaPeli_2.director);
+let arrayScores = pDire2.map(nombre => nombre.score);
 
-console.log("esto es array puntuaciones -->",arrayScores);
+console.log("esto es array puntuaciones 1 -->",arrayScores);
 
-//let arrayDirectors2 = array.filter(nombre => nombre.director);
-
-let sumaPuntuaciones = arrayScores.reduce((contador, item) => contador + item.score, 0);
+let sumaPuntuaciones = arrayScores.reduce((contador, item) => contador + item, 0);
 console.log("esto es sumaPuntuaciones -->", sumaPuntuaciones);
 
 //la reducción de elementos se divide por el número de elementos del objeto 
-let promedioPuntuacion = Number(sumaPuntuaciones / array.length).toFixed(2);
+//let promedioPuntuacion = Number(sumaPuntuaciones / array.length).toFixed(2);
+let promedioPuntuacionDosDecimales = sumaPuntuaciones.toFixed(2);
+console.log("este es el suma total con dos decimales puntuacion -->", promedioPuntuacionDosDecimales);
 
+let promedioFinal =  promedioPuntuacionDosDecimales / arrayScores.length;
+console.log("este es el promedio FINAL -->", promedioFinal);
 //devolver array pelis y se aplica en el promedio los 2 decimales
-//let arrayPeliculas = array.map(pelis =>pelis.title);
-return promedioPuntuacion;
-
+return promedioFinal.toFixed(2);
     
 }
 
 // Exercise 4:  Alphabetic order by title 
 // hauràs de crear una funció, que rebent un array de pel·lícules, el retorni ordenat alfabèticament per títol.
 // retornar les 20 primeres pel·lícules ordenades.
+
 // 1- Se utilizar map (para recorrer los títulos de películas y el método sort que ordena)
 // 2- Se devuelve con return las primeras 20 con lenght > 20 y con slice extraemos del índice 0 a la 20. 
 
@@ -75,23 +79,32 @@ function orderAlphabetically(array) {
 // Exercise 5: Order by year, ascending
 // rebent un array de pel·lícules, retorna un array de pel·lícules ordenades per any.
 // Per a ordenar aquestes pel·lícules que tenen el mateix any, s'ha de fer per ordre alfabètic del títol
+
 // 1-Hacer array map de peliculas y que devuelva este array pero ordenadas por año.
 // 2-Utilizar sort y comparar título - año y por orden alfabético. Se tiene que hacer por orden alfabético del título de la peli
 
-function orderByYear(array) {
+function orderByYear(movies) {
 
-  let titulosPeliculas2 = array.map(pelicula2 => pelicula2.title);
- 
-  let anoPeliculas = array.map(anoPelicula => anoPelicula.year);
+  let titulosPelis = movies.map(pelicula2 => pelicula2.title);
+  console.log("Títulos peliculas -->", titulosPelis);
+  //titulosPelis.sort();
+  let ordenarPelis = movies.sort((s1, s2) => (s1.title == s2.year) ? 1 : (s1.title == s2.year) ? -1 : 0); 
+  console.log("Ordenación por año -->", ordenarPelis);
+  //return array.sort();
+  /*let ordenarPorAno = titulosPeliculas2.sort((a,b) => {
+    return a.year - b.year;
+  });*/
+  //console.log("Ordenar por año -->", ordenarPorAno);
 
+  //let anoPeliculas = array.map(anoPelicula => anoPelicula.year);
    
  //array de pelis, devuelve un array de pelis ordenadas por año
- // return titulosPeliculas2.sort((a,b)=> {return a.title - b.year});
+ // return titulosPelis.sort((a,b)=> {return a.year - b.title});
 
- return titulosPeliculas2 = array.sort((r1, r2) => (r1.year > r2.year) ? 1 : (r1.year < r2.year) ? -1 : 0);
+ //titulosPelis = movies.sort((r1, r2) => (r1.year > r2.year) ? 1 : (r1.year < r2.year) ? -1 : 0);
  //ordenar pelis que tienen el mismo año, orden alfabetico del título
- return ordernarPelis = array.sort((s1, s2) => (s1.title == s2.year) ? 1 : (s1.title == s2.year) ? -1 : 0); 
-
+ //return ordernarPelis = movies.sort((s1, s2) => (s1.title == s2.year) ? 1 : (s1.title == s2.year) ? -1 : 0); 
+ 
   //let filtrajeAlfabetico = titulosPeliculas2.filter(alfaPeli =>alfaPeli.title == title);
 
   //return filtrajeAlfabetico;
@@ -103,6 +116,7 @@ function orderByYear(array) {
 // demanar la nota mitjana de les pel·lícules d'un determinat gènere.
 // rebi una categoria de pel·lícula,  i calculi la mitjana de nota d'aquesta categoria (sobre l'array de totes les pel·lícules).
 // Primer has d'obtenir les pel·lícules d'una determinada categoria, i després cridar a moviesAverage(), per a calcular la seva mitjana.
+
 // 1- Llamar a la función moviesAverage
 // 2- Recibir una categoria de película
 // 3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
@@ -117,6 +131,7 @@ function moviesAverageByCategory(array) {
 
 // Exercise 7: Modify the duration of movies to minutes
 // rebent un array de pel·lícules, retorna un array amb aquestes pel·lícules però amb la durada en minuts!
+
 // 1- Mirar duración películas en horas minutos
 // 2- Devolver esas horas minutos
 // 3- Convertir con parseFloat las horas en minutos 
@@ -127,37 +142,42 @@ function hoursToMinutes(movies) {
 
    //let horasMinutos = array.map(duracionPeli =>duracionPeli.duration);
    let horasMinutos = movies.map(duracionPeli =>duracionPeli.duration);
-   return t = horasMinutos;  
-   let hora = movies.parseFloat(horasMinutos);
+   console.log('horas minutos -->',horasMinutos);
+   
 
-   let convertir = hora * 60;
+   //return horasMinutos;
+   //let convertir = d.getHours() * 60 + d.getMinutes();
+   //console.log(convertir);
 
-  return convertir;
-//console.log(convertir);
+
+   //let convertir2 = hora * 60;
+
   // hora a convertir
-//return t = horasMinutos;
+  //return t = horasMinutos;
 
-// creamos una fecha genérica con tu tiempo
-//let d = new Date(tiempo + t);
+  // creamos una fecha genérica con tu tiempo
+  //let d = new Date(tiempo + t);
 
-// calculamos los minutos a partir de las horas y minutos de la fecha creada
-//let minutos = d.getHours() * 60 + d.getMinutes();
+ // calculamos los minutos a partir de las horas y minutos de la fecha creada
+ //let minutos = d.getHours() * 60 + d.getMinutes();
 
 }
 
 // Exercise 8: Get the best film of a year
 // Els usuaris/àries necessiten saber quina pel·lícula és la millor de cada any. 
 // Per dur a terme aquesta funcionalitat, hauràs de crear una funció que accepti l'any, i retorni la millor pel·lícula d'aquest any.
+
 // 1- Mirar les scores / puntuaciones de las pelis, 
 // 2- Recorrer todos los años de las peliculas y filtrarlas por año / título
 // 3- Devolver la mejor película de ese año 
 
-function bestFilmOfYear(movies) {
+function bestFilmOfYear(movies, year) {
   
-  let anoFilm = movies.filter(busquedaAno => busquedaAno.year == year);
-  // Hacer un if score
+  let mejorFilm = movies.filter(busquedaAno => busquedaAno.year == year);
+  return mejorFilm.sort((a, b) => b.score - a.score).slice(0, 1);
+  //return mejorFilm = movies.reduce((a, b) => a.score > b.score ? a : a.score < b.score ? b : b);
 
-  return anoFilm;
+  //return mejorFilm;
 }
 
 
