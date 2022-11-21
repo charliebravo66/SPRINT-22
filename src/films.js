@@ -5,9 +5,10 @@
 // 1- Utilizar el método map para extraer datos director únicamente 
 // 2- Devolver el array nuevo creado
 
-function getAllDirectors(array) {
+function getAllDirectors(movies) {
 
-let arrayDirectors = array.map(nombre => nombre.director);
+//método map para conseguir el nombre de los directores  
+let arrayDirectors = movies.map(nombre => nombre.director);
 return arrayDirectors;
 
 }
@@ -20,9 +21,10 @@ return arrayDirectors;
 // 1- Crear un array con filter de director == director 
 // 2- Devolver ese array.
 
-function getMoviesFromDirector(array, director) {
+function getMoviesFromDirector(movies, director) {
 
-let pDire = array.filter(busquedaPeli =>busquedaPeli.director == director);
+//hacemos un filter para que nos muestren la peliculas de un determinado director Ejemplo "Mel Gibson"
+let pDire = movies.filter(busquedaPeli =>busquedaPeli.director == director);
 return pDire; 
 
 }
@@ -37,33 +39,20 @@ return pDire;
 // 3- De esas puntuaciones dividir el número de elementos del objeto
 // 4- Devolver un array de pelis i devolver la nota media con 2 decimales
 
-function moviesAverageOfDirector(movies, director) {
+function moviesAverageOfDirector(movies, director){
 
-// let resultado busqueda director película  
-// let result = array.filter(busquedaPeli =>busquedaPeli.director == director);
-// let result = array.map(busquedaPeli =>busquedaPeli.director);
-// llama a la función que nos muestra el array de los directores de pelis
-
-let pDire2 = movies.filter(busquedaPeli_2 =>busquedaPeli_2.director);
-let arrayScores = pDire2.map(nombre => nombre.score);
-
-console.log("esto es array puntuaciones 1 -->",arrayScores);
-
-let sumaPuntuaciones = arrayScores.reduce((contador, item) => contador + item, 0);
-console.log("esto es sumaPuntuaciones -->", sumaPuntuaciones);
-
-//la reducción de elementos se divide por el número de elementos del objeto 
-//let promedioPuntuacion = Number(sumaPuntuaciones / array.length).toFixed(2);
-let promedioPuntuacionDosDecimales = sumaPuntuaciones.toFixed(2);
-console.log("este es el suma total con dos decimales puntuacion -->", promedioPuntuacionDosDecimales);
-
-let promedioFinal =  promedioPuntuacionDosDecimales / arrayScores.length;
-console.log("este es el promedio FINAL -->", promedioFinal);
-//devolver array pelis y se aplica en el promedio los 2 decimales
-return promedioFinal.toFixed(2);
-    
+  // filtramos por peli director
+  let pDire2 = movies.filter(busquedaPeli_2 =>busquedaPeli_2.director === director); 
+   //la reducción de elementos de la puntuación se divide por el número de elementos del objeto 
+  let sumaPuntuaciones = pDire2.reduce((contador, item) => contador + item.score, 0); 
+  // Se divide esa suma de puntuaciones entre 
+  let promedioFinal =  Number(sumaPuntuaciones / pDire2.length);
+  let u = promedioFinal.toFixed(2);
+  return parseFloat(u);
+  
+ 
 }
-
+         
 // Exercise 4:  Alphabetic order by title 
 // hauràs de crear una funció, que rebent un array de pel·lícules, el retorni ordenat alfabèticament per títol.
 // retornar les 20 primeres pel·lícules ordenades.
@@ -71,8 +60,11 @@ return promedioFinal.toFixed(2);
 // 1- Se utilizar map (para recorrer los títulos de películas y el método sort que ordena)
 // 2- Se devuelve con return las primeras 20 con lenght > 20 y con slice extraemos del índice 0 a la 20. 
 
-function orderAlphabetically(array) {
-  let titulosPeliculas = array.map(pelicula => pelicula.title).sort();
+function orderAlphabetically(movies) {
+  
+  //Hacemos un recorrido con map y ordenamos las películas por títulos 
+  let titulosPeliculas = movies.map(pelicula => pelicula.title).sort();
+  // devolvemos solo las 20 primeras (recorremos 20) y cogemos desde inicio (0 hasta la 20 que elegimos como última)
   return titulosPeliculas.length > 20 ? titulosPeliculas.slice(0, 20) : titulosPeliculas;
 }
 
@@ -83,34 +75,32 @@ function orderAlphabetically(array) {
 // 1-Hacer array map de peliculas y que devuelva este array pero ordenadas por año.
 // 2-Utilizar sort y comparar título - año y por orden alfabético. Se tiene que hacer por orden alfabético del título de la peli
 
-function orderByYear(movies) {
+function orderByYear(array) {
 
-  let titulosPelis = movies.map(pelicula2 => pelicula2.title);
-  console.log("Títulos peliculas -->", titulosPelis);
-  //titulosPelis.sort();
-  let ordenarPelis = movies.sort((s1, s2) => (s1.title == s2.year) ? 1 : (s1.title == s2.year) ? -1 : 0); 
-  console.log("Ordenación por año -->", ordenarPelis);
-  //return array.sort();
-  /*let ordenarPorAno = titulosPeliculas2.sort((a,b) => {
-    return a.year - b.year;
-  });*/
-  //console.log("Ordenar por año -->", ordenarPorAno);
+  let titulosPeliculas = [...array];
+  //hacemos la comparación de los elementos a, b
+  titulosPeliculas = titulosPeliculas.sort((a, b) => {
+    //si a(año) es mayor que b devolvemos 1
+    if(a.year > b.year) {
+      return 1;
+    }
+    //si a(año) es menor que b devolvemos -1
+    if(a.year < b.year) {
+      return -1;
+    }
+    //si a(título) es mayor que b devolvemos 1
+    if(a.title > b.title){
+      return 1;
+    }
+    //si a(título) es menor que b devolvemos -1
+    if(a.title < b.title){
+      return -1;
+    }
+    return 0;
+  });
+  return titulosPeliculas;
 
-  //let anoPeliculas = array.map(anoPelicula => anoPelicula.year);
-   
- //array de pelis, devuelve un array de pelis ordenadas por año
- // return titulosPelis.sort((a,b)=> {return a.year - b.title});
-
- //titulosPelis = movies.sort((r1, r2) => (r1.year > r2.year) ? 1 : (r1.year < r2.year) ? -1 : 0);
- //ordenar pelis que tienen el mismo año, orden alfabetico del título
- //return ordernarPelis = movies.sort((s1, s2) => (s1.title == s2.year) ? 1 : (s1.title == s2.year) ? -1 : 0); 
- 
-  //let filtrajeAlfabetico = titulosPeliculas2.filter(alfaPeli =>alfaPeli.title == title);
-
-  //return filtrajeAlfabetico;
-
-
-}
+ }
 
 // Exercise 6: Calculate the average of the movies in a category
 // demanar la nota mitjana de les pel·lícules d'un determinat gènere.
@@ -121,11 +111,27 @@ function orderByYear(movies) {
 // 2- Recibir una categoria de película
 // 3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
 
-function moviesAverageByCategory(array) {
+function moviesAverageByCategory(movies) {
 
-  let puntuaPeliculas = array.map(scorePeli =>scorePeli.genre);
-  //Llamar a la función moviesAverage
-  //moviesAverage;
+  // filtramos por genero y elegimos una categoria 
+  let categoriaDrama = movies.filter(categoryPeli => categoryPeli.genre == "Drama");
+  console.log("Categoria" , categoriaDrama);
+  // con método reduce conseguimos puntuación
+ let puntuaPelis = categoriaDrama.reduce((a, b) => a + b.score, 0);
+ console.log("puntuación total" ,puntuaPelis);
+ // se divide la suma
+ let mediaPuntPeliCat = Number(puntuaPelis / categoriaDrama.length);
+ console.log("división puntuación -->" , mediaPuntPeliCat);
+ let x = mediaPuntPeliCat.toFixed(2);
+ //return mediaPuntPeliCat(x);
+ //return mediaPuntPeliCat;
+ return parseFloat(x);
+ /*let result = moviesAverage(movies);
+ console.log('EXERCICE 6 ->', result);
+ return result;*/
+ 
+// NO DEBE TOMAR CONSIDERACIÓN PELICULAS DE OTRA CATEGORIA
+// debería devolver el promedio incluso si una de las películas no tiene puntaje
 
 }
 
@@ -140,26 +146,17 @@ function moviesAverageByCategory(array) {
 
 function hoursToMinutes(movies) {
 
-   //let horasMinutos = array.map(duracionPeli =>duracionPeli.duration);
-   let horasMinutos = movies.map(duracionPeli =>duracionPeli.duration);
-   console.log('horas minutos -->',horasMinutos);
-   
+  //devolver duración y con Object. assign copia las propiedades objeto fuente y las devuelve a objeto destino
+  return movies.map(duracionPeli =>{
+    let horasMinutos = Object.assign({}, duracionPeli);
+    let [horas, minutos] = horasMinutos.duration.split(' ');
+    horasMinutos.duration = (parseFloat(horas ? horas : 0 ) * 60) + parseFloat(minutos ?  minutos : 0);
+    return horasMinutos;
+    //let minutos = Number.parseInt(horasMinutos) * 60;
+  });
 
-   //return horasMinutos;
-   //let convertir = d.getHours() * 60 + d.getMinutes();
-   //console.log(convertir);
-
-
-   //let convertir2 = hora * 60;
-
-  // hora a convertir
-  //return t = horasMinutos;
-
-  // creamos una fecha genérica con tu tiempo
-  //let d = new Date(tiempo + t);
-
- // calculamos los minutos a partir de las horas y minutos de la fecha creada
- //let minutos = d.getHours() * 60 + d.getMinutes();
+    //console.log("horas minutos array pelis-->", horasMinutos);
+     
 
 }
 
@@ -173,12 +170,16 @@ function hoursToMinutes(movies) {
 
 function bestFilmOfYear(movies, year) {
   
+  // buscamos con filter la pelicula del año
   let mejorFilm = movies.filter(busquedaAno => busquedaAno.year == year);
+  // devolvemos con el método sort ordenando y con slice extrayendo el elemento 
+  console.log (mejorFilm);
   return mejorFilm.sort((a, b) => b.score - a.score).slice(0, 1);
   //return mejorFilm = movies.reduce((a, b) => a.score > b.score ? a : a.score < b.score ? b : b);
-
+ 
   //return mejorFilm;
-}
+
+ }
 
 
 

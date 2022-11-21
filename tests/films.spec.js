@@ -290,6 +290,7 @@ describe('Function "orderByYear"', () => {
   });
 });
 
+
 // Exercise 6
 describe('Function "moviesAverageByCategory"', () => {
   it('should be declared', () => {
