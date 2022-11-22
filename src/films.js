@@ -48,8 +48,9 @@ function moviesAverageOfDirector(movies, director){
   // Se divide esa suma de puntuaciones entre 
   let promedioFinal =  Number(sumaPuntuaciones / pDire2.length);
   let u = promedioFinal.toFixed(2);
+
   return parseFloat(u);
-  
+
  
 }
          
@@ -111,24 +112,35 @@ function orderByYear(array) {
 // 2- Recibir una categoria de película
 // 3- Calcular la media de la nota de esta categoría (sobre el array de todas las películas)
 
-function moviesAverageByCategory(movies) {
+function moviesAverageByCategory(movies, category) {
 
+  let categoriaDrama;
   // filtramos por genero y elegimos una categoria 
-  let categoriaDrama = movies.filter(categoryPeli => categoryPeli.genre == "Drama");
+  categoriaDrama = movies.filter(categoriaPeli => categoriaPeli.genre.includes(category)); 
+  //let categoriaDrama = movies.filter(categoryPeli => categoryPeli.genre == "Drama");
   console.log("Categoria" , categoriaDrama);
+
+  // filtramos si está vacía la categoría
+  categoriaDrama = categoriaDrama.filter(categoriaPeli2 => categoriaPeli2.score !==''); 
+  console.log("si está vacía -->" , categoriaDrama)
+
   // con método reduce conseguimos puntuación
- let puntuaPelis = categoriaDrama.reduce((a, b) => a + b.score, 0);
- console.log("puntuación total" ,puntuaPelis);
+  let puntuaPelis = categoriaDrama.reduce((a, b) => a + b.score, 0);
+  console.log("puntuación total" ,puntuaPelis);
  // se divide la suma
- let mediaPuntPeliCat = Number(puntuaPelis / categoriaDrama.length);
- console.log("división puntuación -->" , mediaPuntPeliCat);
- let x = mediaPuntPeliCat.toFixed(2);
- //return mediaPuntPeliCat(x);
+
+  let mediaPuntPeliCat = Number(puntuaPelis / categoriaDrama.length);
+          
+  //let mediaPuntPeliCat2 = Number(mediaPuntPeliCat / moviesAverageOfDirector.length);
+  console.log("división puntuación -->" , mediaPuntPeliCat);
+    
+  let x = mediaPuntPeliCat.toFixed(2);
+  //let x = mediaPuntPeliCat.toFixed(2);
+  console.log("media final -->" , mediaPuntPeliCat)     
+ 
  //return mediaPuntPeliCat;
- return parseFloat(x);
- /*let result = moviesAverage(movies);
- console.log('EXERCICE 6 ->', result);
- return result;*/
+   return parseFloat(x);
+
  
 // NO DEBE TOMAR CONSIDERACIÓN PELICULAS DE OTRA CATEGORIA
 // debería devolver el promedio incluso si una de las películas no tiene puntaje
